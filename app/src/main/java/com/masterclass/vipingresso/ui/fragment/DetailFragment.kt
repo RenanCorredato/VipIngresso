@@ -1,4 +1,4 @@
-package com.masterclass.vipingresso.fragment
+package com.masterclass.vipingresso.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import com.masterclass.vipingresso.R
 
 
+class DetailFragment : Fragment() {
 
-class LoginFragment : Fragment() {
+
 
 
     override fun onCreateView(
@@ -17,6 +18,7 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        return inflater.inflate(R.layout.fragment_detail, container, false)
     }
+
 }

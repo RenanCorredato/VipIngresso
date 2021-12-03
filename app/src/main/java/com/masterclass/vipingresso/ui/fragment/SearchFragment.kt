@@ -1,4 +1,4 @@
-package com.masterclass.vipingresso.fragment
+package com.masterclass.vipingresso.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

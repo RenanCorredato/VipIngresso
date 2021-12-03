@@ -1,4 +1,4 @@
-package com.masterclass.vipingresso.activity
+package com.masterclass.vipingresso.ui.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

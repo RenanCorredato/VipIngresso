@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_1"
+        android:id="@+id/homeFragment"
         android:enabled="true"
         android:icon="@drawable/baseline_event_24"
         android:title="@string/event"/>
     <item
-        android:id="@+id/page_2"
+        android:id="@+id/searchFragment"
         android:enabled="true"
         android:icon="@drawable/baseline_search_24"
         android:title="@string/search"/>
     <item
-        android:id="@+id/page_3"
+        android:id="@+id/favoritesFragment"
         android:enabled="true"
         android:icon="@drawable/baseline_favorite_24"
         android:title="@string/favorite"/>
     <item
-        android:id="@+id/page_4"
+        android:id="@+id/loginFragment"
         android:enabled="true"
         android:icon="@drawable/baseline_perm_identity_24"
         android:title="@string/profile"/>
