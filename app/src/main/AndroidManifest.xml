@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.masterclass.vipingresso">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +13,7 @@
         android:theme="@style/Theme.Vipingresso">
 
         <activity
-            android:name="com.masterclass.vipingresso.ui.activity.SplashActivity"
+            android:name="com.masterclass.vipingresso.features.activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +23,7 @@
         </activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.masterclass.vipingresso.ui.activity.MainActivity"
+            android:name="com.masterclass.vipingresso.features.activity.MainActivity"
             android:exported="true">
 
         </activity>
