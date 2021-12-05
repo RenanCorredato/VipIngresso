@@ -14,4 +14,10 @@ class HomeRepository:BaseRepository() {
         }
 
     }
+
+   suspend fun getAttractionSearch():ResponseApi {
+        return safeApiCall {
+            ApiService.tmApi.getAttractionSearch()
+        }
+    }
 }

@@ -12,7 +12,7 @@ import com.masterclass.vipingresso.features.home.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
 
-    private var binding:FragmentHomeBinding? = null
+    private var binding: FragmentHomeBinding? = null
     private lateinit var viewModel: HomeViewModel
 
     override fun onCreateView(
@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentHomeBinding.inflate(inflater,container,false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
@@ -32,7 +32,24 @@ class HomeFragment : Fragment() {
 
             viewModel.getEventSearch()
 
+            viewModel.getAttractionSearch()
 
+            setupObservables()
+        }
+
+    }
+
+    private fun setupObservables() {
+
+        activity?.let {
+            viewModel.onSuccessEventSearchResult.observe(it, {
+                it
+
+            })
+
+            viewModel.onErrorEventSearchResult.observe(it, {
+                it
+            })
         }
 
     }
