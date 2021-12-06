@@ -19,6 +19,4 @@ interface TMApi {
     suspend fun getAttractionSearch(): Response<AttractionSearchResult>
 
 
-
-
 }

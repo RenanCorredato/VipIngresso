@@ -2,14 +2,14 @@ package com.masterclass.vipingresso.features.home.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.masterclass.vipingresso.base.BaseViewModel
 import com.masterclass.vipingresso.features.home.usecase.HomeUseCase
+import com.masterclass.vipingresso.features.model.modelAttractionSearch.AttractionSearchResult
 import com.masterclass.vipingresso.features.model.modelEventSearch.EventSearchResult
-import com.masterclass.vipingresso.utils.ResponseApi
 import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel : BaseViewModel() {
 
     private val homeUseCase = HomeUseCase()
 
@@ -25,23 +25,45 @@ class HomeViewModel : ViewModel() {
     val onErrorEventSearchResult: LiveData<Int>
         get() = _onErrorEventSearchResult
 
+    //------------------------//------------------//
+
+    private val _onSuccessAttractionSearchResult: MutableLiveData<AttractionSearchResult> =
+        MutableLiveData()
+
+    val onSuccessAttractionSearchResult: LiveData<AttractionSearchResult>
+        get() = _onSuccessAttractionSearchResult
+
+    private val _onErrorAttractionSearchResult: MutableLiveData<Int> =
+        MutableLiveData()
+
+    val onErrorAttractionSearchResult: LiveData<Int>
+        get() = _onErrorAttractionSearchResult
+
 
     fun getEventSearch() {
         viewModelScope.launch {
-            when(val responseApi = homeUseCase.getEventSearch()){
-                is ResponseApi.Success -> {
-                    _onSuccessEventSearchResult.postValue(responseApi.data as? List<EventSearchResult>)
+            callApi(
+                suspend { homeUseCase.getEventSearch() },
+                onSuccess = {
+                    val result = it as? List<*>
+                    _onSuccessEventSearchResult.postValue(
+                        result?.filterIsInstance<EventSearchResult>()
+                    )
                 }
-                is ResponseApi.Error ->{
-                    _onErrorEventSearchResult.postValue(responseApi.message)
-                }
-            }
+            )
         }
     }
 
     fun getAttractionSearch() {
         viewModelScope.launch {
-            homeUseCase.getAttractionSearch()
+            callApi(
+                suspend { homeUseCase.getAttractionSearch() },
+                onSuccess = {
+                    _onSuccessAttractionSearchResult.postValue(
+                        it as? AttractionSearchResult
+                    )
+                }
+            )
         }
     }
 

@@ -21,9 +21,5 @@ class MainActivity : AppCompatActivity() {
         val navController = Navigation.findNavController(this,R.id.nav_host_fragment)
         setupWithNavController(binding.bottomNavigation,navController)
 
-        val fragment = HomeFragment()
-        supportFragmentManager.beginTransaction()
-            .replace(binding.container.id, fragment)
-            .addToBackStack(null).commit()
     }
 }

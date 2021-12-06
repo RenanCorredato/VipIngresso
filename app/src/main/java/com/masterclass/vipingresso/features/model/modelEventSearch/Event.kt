@@ -6,7 +6,7 @@ data class Event(
     val accessibility: Accessibility,
     val ageRestrictions: AgeRestrictions,
     val classifications: List<ClassificationX>,
-    val dates: Dates,
+    var dates: Dates,
     val id: String,
     val images: List<ImageXX>,
     val info: String,
