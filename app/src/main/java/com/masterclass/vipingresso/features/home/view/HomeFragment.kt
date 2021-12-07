@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import com.masterclass.vipingresso.databinding.FragmentHomeBinding
 import com.masterclass.vipingresso.features.home.viewmodel.HomeViewModel
+import com.masterclass.vipingresso.utils.Command
 
 
 class HomeFragment : Fragment() {
@@ -36,39 +37,24 @@ class HomeFragment : Fragment() {
 
             viewModel.command = MutableLiveData()
 
-            viewModel.getEventSearch()
-
             viewModel.getAttractionSearch()
 
-
-
-
-
             setupObservables()
+
+
         }
 
     }
 
     private fun setupObservables() {
+        viewModel.onSuccessAttractionSearch.observe(viewLifecycleOwner, {
+            Log.i("teste", it.toString())
+        })
 
-
-            viewModel.onSuccessEventSearchResult.observe(viewLifecycleOwner, {
-                Log.i("teste", it.toString())
-            })
-
-            viewModel.onErrorEventSearchResult.observe(viewLifecycleOwner, {
-                it
-            })
-
-            viewModel.onSuccessAttractionSearchResult.observe(viewLifecycleOwner,{
-                it
-            })
-
-            viewModel.onErrorAttractionSearchResult.observe(viewLifecycleOwner,{
-                it
-            })
-        }
-
+        viewModel.onErrorAttractionSearch.observe(viewLifecycleOwner, {
+            it
+        })
+    }
 
 
     override fun onDestroyView() {

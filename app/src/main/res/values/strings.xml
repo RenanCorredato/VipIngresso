@@ -7,4 +7,5 @@
     <string name="favorite">FAVORITO</string>
     <string name="profile">PERFIL</string>
     <string name="error_default">Erro desconhecido, tente novamente</string>
+    <string name="info">+ Info</string>
 </resources>

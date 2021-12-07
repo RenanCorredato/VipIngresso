@@ -1,8 +1,9 @@
 package com.masterclass.vipingresso.base
 
-import com.masterclass.vipingresso.utils.ResponseApi
-import com.masterclass.vipingresso.utils.ErrorUtils
+
 import com.masterclass.vipingresso.R
+import com.masterclass.vipingresso.utils.ErrorUtils
+import com.masterclass.vipingresso.utils.ResponseApi
 import retrofit2.Response
 
 open class BaseRepository {
