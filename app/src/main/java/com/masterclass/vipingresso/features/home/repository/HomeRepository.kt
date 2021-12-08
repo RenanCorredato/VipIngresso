@@ -13,4 +13,12 @@ class HomeRepository : BaseRepository() {
             ApiService.tmdbApi.getAttractionSearch()
         }
     }
+
+  suspend  fun getAttractionDetailsId(id: Int): ResponseApi {
+        return safeApiCall {
+            ApiService.tmdbApi.getAttractionDetailsId(id)
+        }
+    }
+
+
 }

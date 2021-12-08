@@ -4,6 +4,8 @@ package com.masterclass.vipingresso.api
 import com.masterclass.vipingresso.BuildConfig
 import com.masterclass.vipingresso.utils.ConstantsApp.Api.API_TOKEN
 import com.masterclass.vipingresso.utils.ConstantsApp.Api.API_TOKEN_KEY
+import com.masterclass.vipingresso.utils.ConstantsApp.Api.QUERY_PARAM_LANGUAGE_KEY
+import com.masterclass.vipingresso.utils.ConstantsApp.Api.QUERY_PARAM_LANGUAGE_VALUE
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -16,7 +18,7 @@ object ApiService {
 
     fun getTMDBApiClient(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://app.ticketmaster.com/discovery/v2/")
+            .baseUrl("https://api.themoviedb.org/3/")
             .client(getInterceptorClient())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -36,8 +38,8 @@ object ApiService {
             .addInterceptor { chain ->
                 val url = chain.request().url.newBuilder()
                     .addQueryParameter(API_TOKEN_KEY, API_TOKEN)
-
-                    .build()
+                .addQueryParameter(QUERY_PARAM_LANGUAGE_KEY, QUERY_PARAM_LANGUAGE_VALUE)
+                .build()
                 val newRequest = chain.request().newBuilder().url(url).build()
                 chain.proceed(newRequest)
             }

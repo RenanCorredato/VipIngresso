@@ -1,16 +1,17 @@
 package com.masterclass.vipingresso.features.home.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.masterclass.vipingresso.databinding.FragmentHomeBinding
+import com.masterclass.vipingresso.features.home.adapter.AttractionSearchAdapter
 import com.masterclass.vipingresso.features.home.viewmodel.HomeViewModel
-import com.masterclass.vipingresso.utils.Command
+
 
 
 class HomeFragment : Fragment() {
@@ -39,6 +40,9 @@ class HomeFragment : Fragment() {
 
             viewModel.getAttractionSearch()
 
+
+
+
             setupObservables()
 
 
@@ -48,7 +52,22 @@ class HomeFragment : Fragment() {
 
     private fun setupObservables() {
         viewModel.onSuccessAttractionSearch.observe(viewLifecycleOwner, {
-            Log.i("teste", it.toString())
+         it?.let {attractionSearch ->
+             val attractionSearchAdapter = AttractionSearchAdapter(
+                 attractionSearchList = attractionSearch
+             ){
+                 viewModel.getAttractionDetailsId(it.id)
+             }
+             binding?.let{
+                 with(it){
+                     rvHomeEventSearch.apply {
+                         layoutManager = LinearLayoutManager(context)
+                         adapter = attractionSearchAdapter
+                     }
+                 }
+             }
+         }
+
         })
 
         viewModel.onErrorAttractionSearch.observe(viewLifecycleOwner, {
