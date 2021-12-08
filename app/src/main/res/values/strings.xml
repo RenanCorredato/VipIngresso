@@ -18,4 +18,5 @@
     <string name="password">Senha</string>
     <string name="forgotPasswordLogin">Esqueceu a senha? Clique aqui</string>
     <string name="login">Login</string>
+    <string name="google_sign">Entrar com Google</string>
 </resources>

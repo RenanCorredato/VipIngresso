@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "639615636822",
+    "project_id": "vipincresso",
+    "storage_bucket": "vipincresso.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639615636822:android:38e9453a2d03be8128b2f7",
+        "android_client_info": {
+          "package_name": "com.masterclass.vipingresso"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "639615636822-qfop1s4qud4nltjenv532mi0e4rgp12v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDX2U_SkJHRq8qV0NhES4LjdJithx1IZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "639615636822-qfop1s4qud4nltjenv532mi0e4rgp12v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
