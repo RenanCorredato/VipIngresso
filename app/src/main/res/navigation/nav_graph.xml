@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.masterclass.vipingresso.features.fragment.DetailFragment"
+        android:name="com.masterclass.vipingresso.features.attractiondetails.view.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
     <fragment

@@ -7,5 +7,15 @@
     <string name="favorite">FAVORITO</string>
     <string name="profile">PERFIL</string>
     <string name="error_default">Erro desconhecido, tente novamente</string>
+
+
     <string name="info">+ Info</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="nearby_theaters">Movie Theaters nearby</string>
+    <string name="label_try_again">Tentar novamente</string>
+    <string name="helper_required">Obrigatório</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="forgotPasswordLogin">Esqueceu a senha? Clique aqui</string>
+    <string name="login">Login</string>
 </resources>

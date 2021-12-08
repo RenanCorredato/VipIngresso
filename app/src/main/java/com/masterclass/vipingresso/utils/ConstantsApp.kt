@@ -11,4 +11,8 @@ class ConstantsApp {
         //https://api.themoviedb.org/3/movie/550?api_key=f59bcbd736acb989e0f913d6c5fcffe7
     }
 
+    object Home{
+        const val KEY_BUNDLE_MOVIE_ID = "movieId"
+    }
+
 }
