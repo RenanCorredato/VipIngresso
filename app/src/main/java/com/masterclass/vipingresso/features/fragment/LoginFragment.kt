@@ -25,14 +25,17 @@ class LoginFragment : Fragment() {
     private var binding: FragmentLoginBinding? = null
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
-    private val RC_SIGN_IN = 1
+
+    companion object {
+        private const val RC_SIGN_IN = 1
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentLoginBinding.inflate(inflater,container,false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding?.root
 
     }
@@ -81,11 +84,11 @@ class LoginFragment : Fragment() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("TAG", "signInWithCredential:success")
                     val user = auth.currentUser
-                    Toast.makeText(context,"Logouuuuu",Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Logouuuuu", Toast.LENGTH_LONG).show()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("TAG", "signInWithCredential:failure", task.exception)
-                    Toast.makeText(context,"Deu RUIM",Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Deu RUIM", Toast.LENGTH_LONG).show()
 
                 }
             }
@@ -95,8 +98,17 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.signInButton?.setOnClickListener {
-                signIn()
+            signIn()
         }
 
+        binding?.btLogin?.setOnClickListener {
+            Toast.makeText(context, "Login", Toast.LENGTH_LONG).show()
+        }
+        binding?.btLogout?.setOnClickListener {
+            auth.signOut()
+            googleSignInClient.signOut()
+            Toast.makeText(context, "Deslogado", Toast.LENGTH_LONG).show()
+
+        }
     }
 }
